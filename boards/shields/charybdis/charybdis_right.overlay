@@ -3,12 +3,12 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
-	col-offset = <6>;
-};
-
-&five_column_transform {
 	col-offset = <5>;
 };
+
+//&five_column_transform {
+//	col-offset = <5>;
+//};
 
 &kscan0 {
 	compatible = "zmk,kscan-gpio-matrix";
