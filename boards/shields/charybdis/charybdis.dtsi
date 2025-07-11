@@ -5,6 +5,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &charybdis_5col_layout;
+        zephyr,display = &charybdis_5col_layout;
     };
 
     six_column_transform: keymap_transform_1 {
