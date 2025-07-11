@@ -66,6 +66,7 @@
 
     chosen {
         zmk,matrix_transform = &five_column_transform;
+        zephyr,display = &five_column_transform;
     };
 
      keymap {
