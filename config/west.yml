@@ -16,10 +16,10 @@ manifest:
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: main
-    - name: zmk-keyboards-charybdis
-      url: https://github.com/victorlucachi/zmk-keyboards-charybdis
-      revision: main
-      path: modules/zmk-keyboards-charybdis
+#    - name: zmk-keyboards-charybdis
+#      url: https://github.com/victorlucachi/zmk-keyboards-charybdis
+#      revision: main
+#      path: modules/zmk-keyboards-charybdis
     - name: zmk-tri-state
       remote: dhruvinsh
       revision: main
