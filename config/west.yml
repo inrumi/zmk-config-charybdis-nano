@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: dhruvinsh
+      url-base: https://github.com/dhruvinsh
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -16,5 +18,8 @@ manifest:
       url: https://github.com/victorlucachi/zmk-keyboards-charybdis
       revision: main
       path: modules/zmk-keyboards-charybdis
+    - name: zmk-tri-state
+      remote: dhruvinsh
+      revision: main
   self:
     path: config
