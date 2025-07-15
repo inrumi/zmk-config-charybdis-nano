@@ -10,8 +10,8 @@
 #define NAV  1
 #define SYM  2
 #define NUM  3
-#define MOU  4
-#define ADJ  5
+#define FUN  4
+#define MOU  5
 
 &sk {
     quick-release;
