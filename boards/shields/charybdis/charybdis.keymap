@@ -65,19 +65,16 @@
     behaviors {
         appswap: appswap {
             compatible = "zmk,behavior-tri-state";
-            label = "App Switcher";
             #binding-cells = <0>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
         };
         winswap: winswap {
             compatible = "zmk,behavior-tri-state";
-            label = "Window Switcher";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp GRAVE>, <&kt LALT>;
         };
         tabswap: tabswap {
             compatible = "zmk,behavior-tri-state";
-            label = "Tab Switcher";
             #binding-cells = <0>;
             bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
         };
