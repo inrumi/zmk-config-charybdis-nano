@@ -6,6 +6,8 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+#define AS(keycode) &as LS(keycode) keycode
+
 #define BASE 0
 #define NAV  1
 #define SYM  2
@@ -22,12 +24,6 @@
 / {
     combos {
         compatible = "zmk,combos";
-
-        combo_FUN_LAYER {
-            timeout-ms = <100>;
-            key-positions = <31 33>;
-            bindings = <&mo FUN>;
-        };
 
         combo_CAPSWORD {
             key-positions = <24 25>;
@@ -88,15 +84,26 @@
             #binding-cells = <0>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
         };
+
         winswap: winswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp GRAVE>, <&kt LALT>;
         };
+
         tabswap: tabswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
+        };
+
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <400>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -114,17 +121,17 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃     A     ┃     R     ┃     S     ┃     T     ┃     G     ┃   ┃     M     ┃     N     ┃     E     ┃     I     ┃     O     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃  Z ┃ MOU  ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃  /  ┃ MOU ┃
+    //             ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃  /  ┃ MOU ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃    SYM    ┃
+    //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
-                    &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-                    &lt MOU Z   &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &lt MOU FSLH
-                                            &mo NAV     &kp LSHFT   &mo NUM         &kp SPC     &mo SYM
+                    AS(Q)       AS(W)       AS(F)       AS(P)       AS(B)           AS(J)       AS(L)       AS(U)       AS(Y)       &kp SQT
+                    AS(A)       AS(R)       AS(S)       AS(T)       AS(G)           AS(M)       AS(N)       AS(E)       AS(I)       AS(O)
+                    AS(Z)       AS(X)       AS(C)       AS(D)       AS(V)           AS(K)       AS(H)       &kp COMMA   &kp DOT     &lt MOU FSLH
+                                            &mo NAV     &kp LSHFT   &mo FUN         &kp SPC     &mo SYM
                             >;
                     };
 
@@ -142,7 +149,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃    UNDO   ┃    CUT    ┃    COPY   ┃    REDO   ┃   PASTE   ┃   ┃   CAPS    ┃           ┃           ┃           ┃   ENTER   ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃ █████████ ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃    SYM    ┃
+    //                                     ┃ █████████ ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -168,13 +175,13 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃           ┃           ┃           ┃     ~     ┃     |     ┃   ┃           ┃     {     ┃     }     ┃      :    ┃     ;     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃ █████████ ┃
+    //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃ █████████ ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp ASTRK   &kp LPAR    &kp RPAR   &kp MINUS    &kp EQUAL
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp CARET       &kp AMPS    &kp LBKT    &kp RBKT   &kp GRAVE    &kp BSLH
+                    &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp ASTRK   &kp LPAR    &kp RPAR   AS(MINUS)    AS(EQUAL)
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp CARET       &kp AMPS    AS(LBKT)    AS(RBKT)   AS(GRAVE)    AS(BSLH)
                     &trans      &trans      &trans      &kp TILDE   &kp PIPE        &trans      &kp LBRC    &kp RBRC   &kp COLON    &kp SEMI
                                             &trans      &trans      &trans          &trans      &trans
                             >;
@@ -194,7 +201,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃           ┃           ┃           ┃           ┃           ┃   ┃     0     ┃     1     ┃     2     ┃     3     ┃     .     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃ █████████ ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃ █████████ ┃
+    //                                     ┃ █████████ ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃ █████████ ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -220,7 +227,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃           ┃ USB | BLE ┃  BT PRV   ┃  BT NXT   ┃  BT CLR   ┃   ┃           ┃    F1     ┃    F2     ┃    F3     ┃    F10    ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃ █████████ ┃           ┃   ┃ █████████ ┃    SYM    ┃
+    //                                     ┃    NAV    ┃   SHIFT   ┃ █████████ ┃   ┃           ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -246,7 +253,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━┃ MCLICK ┃━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃ █████████ ┃           ┃           ┃           ┃           ┃   ┃           ┃  LCLICK   ┃  RCLICK   ┃  SCROLL   ┃ █████████ ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃    SYM    ┃
+    //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -270,9 +277,9 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━┃ MCLICK ┃━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃ █████████ ┃           ┃           ┃           ┃           ┃   ┃           ┃  LCLICK   ┃  RCLICK   ┃ █████████ ┃ █████████ ┃
+    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃  LCLICK   ┃  RCLICK   ┃ █████████ ┃ █████████ ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃           ┃   ┃   SPACE   ┃    SYM    ┃
+    //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
