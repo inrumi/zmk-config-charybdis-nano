@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: dhruvinsh
+      url-base: https://github.com/dhruvinsh
     - name: englmaxi
       url-base: https://github.com/englmaxi
   projects:
@@ -13,6 +15,9 @@ manifest:
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: badjeff
+      revision: main
+    - name: zmk-tri-state
+      remote: dhruvinsh
       revision: main
     - name: zmk-dongle-display
       remote: englmaxi
