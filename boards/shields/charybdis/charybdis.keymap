@@ -32,32 +32,9 @@
         };
 
         combo_CAPSWORD {
+            timeout-ms = <80>;
             key-positions = <24 25>;
             bindings = <&caps_word>;
-            layers = <BASE>;
-        };
-
-        combo_LEFT_RESET {
-            key-positions = <3 4 5>;
-            bindings = <&sys_reset>;
-            layers = <BASE>;
-        };
-
-        combo_LEFT_BOOT {
-            key-positions = <0 2 4>;
-            bindings = <&sys_reset>;
-            layers = <BASE>;
-        };
-
-        combo_RIGHT_RESET {
-            key-positions = <5 6 7>;
-            bindings = <&sys_reset>;
-            layers = <BASE>;
-        };
-
-        combo_RIGHT_BOOT {
-            key-positions = <5 7 9>;
-            bindings = <&sys_reset>;
             layers = <BASE>;
         };
 
@@ -113,7 +90,7 @@
         winswap: winswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&kt LALT>, <&kp GRAVE>, <&kt LALT>;
+            bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;
         };
 
         tabswap: tabswap {
@@ -252,7 +229,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃           ┃ USB | BLE ┃  BT PRV   ┃  BT NXT   ┃  BT CLR   ┃   ┃           ┃    F1     ┃    F2     ┃    F3     ┃    F10    ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃ █████████ ┃   ┃           ┃    SYM    ┃
+    //                                     ┃    BOOT   ┃   RESET   ┃ █████████ ┃   ┃   RESET   ┃   BOOT    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -260,7 +237,7 @@
                  &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &none       &kp F7      &kp F8      &kp F9      &kp F12
                     &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp C_VOL_DN    &none       &kp F4      &kp F5      &kp F6      &kp F11
                     &none       &out OUT_TOG &bt BT_PRV	&bt BT_NXT  &bt BT_CLR      &none       &kp F1      &kp F2      &kp F3      &kp F10
-                                            &trans      &trans      &trans          &trans      &trans
+                                            &bootloader &sys_reset  &trans          &sys_reset  &bootloader
                             >;
                     };
 
