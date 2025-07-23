@@ -6,8 +6,6 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-#define AS(keycode) &as LS(keycode) keycode
-
 #define BASE 0
 #define NAV  1
 #define SYM  2
@@ -80,6 +78,7 @@
         };
 
         automouse {
+            layers = <MOU>;
             input-processors = <&zip_temp_layer MOU 1000>;
         };
     };
@@ -101,15 +100,6 @@
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
-        };
-
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping_term_ms = <400>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -134,9 +124,9 @@
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    AS(Q)       AS(W)       AS(F)       AS(P)       AS(B)           AS(J)       AS(L)       AS(U)       AS(Y)       &kp SQT
-                    AS(A)       AS(R)       AS(S)       AS(T)       AS(G)           AS(M)       AS(N)       AS(E)       AS(I)       AS(O)
-                    AS(Z)       AS(X)       AS(C)       AS(D)       AS(V)           AS(K)       AS(H)       &kp COMMA   &kp DOT     &lt MOU FSLH
+                    &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
+                    &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
+                    &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &lt MOU FSLH
                                             &mo NAV     &kp LSHFT   &mo FUN         &kp SPC     &mo SYM
                             >;
                     };
