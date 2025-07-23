@@ -6,8 +6,8 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-#include <dt-bindings/zmk/pointing.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
+//#include <dt-bindings/zmk/pointing.h>
+//#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #define BASE 0
 #define NAV  1
@@ -69,7 +69,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
 
-        input-processors = <&zip_temp_layer MOU 1000>;
+        input-processors = <&zip_temp_layer MOU 600>;
 
     // May enable it later
     //    snipe {
