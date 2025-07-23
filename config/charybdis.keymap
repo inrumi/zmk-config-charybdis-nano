@@ -6,15 +6,11 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-//#include <dt-bindings/zmk/pointing.h>
-//#include <zephyr/dt-bindings/input/input-event-codes.h>
-
 #define BASE 0
 #define NAV  1
 #define SYM  2
 #define NUM  3
 #define FUN  4
-#define MOU  5
 
 &sk {
     quick-release;
@@ -26,21 +22,18 @@
 
         combo_MCLICK {
             timeout-ms = <100>;
-            layers = <BASE>;
             key-positions = <26 28>;
             bindings = <&mkp MCLK>;
         };
 
         combo_LCLICK {
             timeout-ms = <100>;
-            layers = <BASE>;
             key-positions = <26 27>;
             bindings = <&mkp LCLK>;
         };
 
         combo_RCLICK {
             timeout-ms = <100>;
-            layers = <BASE>;
             key-positions = <27 28>;
             bindings = <&mkp RCLK>;
         };
@@ -53,7 +46,7 @@
         };
 
         combo_CAPSWORD {
-            key-positions = <10 11>;
+            key-positions = <20 21>;
             bindings = <&caps_word>;
             layers = <BASE>;
         };
@@ -87,14 +80,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
-
-        input-processors = <&zip_temp_layer MOU 1000>;
-
-    // May enable it later
-    //    snipe {
-    //        layers = <SNIP>;
-    //        input-processors = <&zip_xy_scaler 1 2>;
-    //    };
 
         scroll {
             layers = <NAV>;
@@ -137,7 +122,7 @@
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃     A     ┃     R     ┃     S     ┃     T     ┃     G     ┃   ┃     M     ┃     N     ┃     E     ┃     I     ┃     O     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃  /  ┃ MOU ┃
+    //             ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃     /     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -146,7 +131,7 @@
 
                     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-                    &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &lt MOU FSLH
+                    &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH
                                             &mo NAV     &kp LSHFT   &mo FUN         &kp SPC     &mo SYM
                             >;
                     };
@@ -251,32 +236,6 @@
                  &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &none       &kp F7      &kp F8      &kp F9      &kp F12
                     &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp C_VOL_DN    &none       &kp F4      &kp F5      &kp F6      &kp F11
                     &sys_reset  &out OUT_TOG &bt BT_PRV	&bt BT_NXT  &bt BT_CLR      &sys_reset  &kp F1      &kp F2      &kp F3      &kp F10
-                                            &trans      &trans      &trans          &trans      &trans
-                            >;
-                    };
-
-    // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-                MOU {
-                display-name = "MOUSE";
-    // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-    // ┃          5 - Mouse                    ┃
-    // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-    //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-    //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-    //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━┃ MCLICK ┃━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃  LCLICK   ┃  RCLICK   ┃  SCROLL   ┃ █████████ ┃
-    //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-    //                                     ┃    NAV    ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃    SYM    ┃
-    //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
-     bindings = <
-    // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                    &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
-                    &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &none           &none       &none       &none       &none       &none
-                    &none       &none       &none       &none       &none           &none       &mkp LCLK   &mkp RCLK   &none       &none
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
