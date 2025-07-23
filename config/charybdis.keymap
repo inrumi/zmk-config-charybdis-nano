@@ -53,7 +53,7 @@
             bindings = <&mo NAV>;
         };
 
-        combo_CAPSWORD {.
+        combo_CAPSWORD {
             key-positions = <10 11>;
             bindings = <&caps_word>;
             layers = <BASE>;
