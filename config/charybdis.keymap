@@ -20,15 +20,15 @@
 
 &mkp_input_listener {
     input-processors = <&zip_temp_layer MOU 1000>;
-}
+};
 
 &mmv_input_listener {
     input-processors = <&zip_temp_layer MOU 1000>;
-}
+};
 
 &msc_input_listener {
     input-processors = <&zip_temp_layer MOU 1000>;
-}
+};
 
 / {
     combos {
