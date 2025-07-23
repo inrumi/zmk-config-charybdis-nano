@@ -27,13 +27,33 @@
 
         combo_MCLICK {
             timeout-ms = <100>;
-            layers = <MOU SCRL>;
+            layers = <BASE>;
+            key-positions = <26 28>;
+            bindings = <&mkp MCLK>;
+        };
+
+        combo_LCLICK {
+            timeout-ms = <100>;
+            layers = <BASE>;
             key-positions = <26 27>;
             bindings = <&mkp MCLK>;
         };
 
-        combo_CAPSWORD {
-            timeout-ms = <80>;
+        combo_RCLICK {
+            timeout-ms = <100>;
+            layers = <BASE>;
+            key-positions = <27 28>;
+            bindings = <&mkp MCLK>;
+        };
+
+        combo_SCROLL_LAYER {
+            timeout-ms = <100>;
+            layers = <BASE>;
+            key-positions = <26 27 28>;
+            bindings = <&mo NAV>;
+        };
+
+        combo_CAPSWORD {.
             key-positions = <10 11>;
             bindings = <&caps_word>;
             layers = <BASE>;
@@ -69,7 +89,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
 
-        input-processors = <&zip_temp_layer MOU 600>;
+        input-processors = <&zip_temp_layer MOU 1000>;
 
     // May enable it later
     //    snipe {
@@ -78,7 +98,7 @@
     //    };
 
         scroll {
-            layers = <SCRL>;
+            layers = <NAV>;
             input-processors = <&zip_xy_scaler 1 20>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
         };
 
