@@ -184,8 +184,8 @@
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp ASTRK   &kp LPAR    &kp RPAR   AS(MINUS)    AS(EQUAL)
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp CARET       &kp AMPS    AS(LBKT)    AS(RBKT)   AS(GRAVE)    AS(BSLH)
+                    &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp ASTRK   &kp LPAR    &kp RPAR   &kp MINUS    &kp EQUAL
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &kp CARET       &kp AMPS    &kp LBKT    &kp RBKT   &kp GRAVE    &kp BSLH
                     &trans      &trans      &trans      &kp TILDE   &kp PIPE        &trans      &kp LBRC    &kp RBRC   &kp COLON    &kp SEMI
                                             &trans      &trans      &trans          &trans      &trans
                             >;
