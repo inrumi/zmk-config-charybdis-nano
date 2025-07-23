@@ -27,7 +27,7 @@
 }
 
 &msc_input_listener {
-    input-processors = <&zip_temp_layer MOU 2000>;
+    input-processors = <&zip_temp_layer MOU 1000>;
 }
 
 / {
