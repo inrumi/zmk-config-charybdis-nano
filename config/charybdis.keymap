@@ -39,7 +39,7 @@
         };
 
         combo_SCROLL_LAYER {
-            timeout-ms = <100>;
+            timeout-ms = <160>;
             layers = <BASE>;
             key-positions = <26 27 28>;
             bindings = <&mo NAV>;
