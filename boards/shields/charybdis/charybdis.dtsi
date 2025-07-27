@@ -22,6 +22,7 @@
 	
     kscan0: kscan {
         diode-direction = "row2col";
+	    wakeup-source;
     };
 
     charybdis_5col_layout: charybdis_5col_layout{
