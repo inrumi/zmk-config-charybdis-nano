@@ -14,12 +14,8 @@
 
 &sk {
     quick-release;
+    release-after-ms = <1600>;
 };
-
-&soft_off {
-    hold-time-ms = <3000>;
-};
-
 
 / {
     combos {
