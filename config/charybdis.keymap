@@ -16,6 +16,11 @@
     quick-release;
 };
 
+&soft_off {
+    hold-time-ms = <3000>;
+};
+
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -50,6 +55,12 @@
             bindings = <&caps_word>;
             layers = <BASE>;
         };
+
+        combo_CENTRAL_SOFT_OFF {
+            key-positions = <1 2 7 8>;
+            bindings = <&soft_off>;
+            layers = <BASE>;
+        }
 
         combo_CENTRAL_BOOT {
             key-positions = <0 4 5 9>;
@@ -233,7 +244,7 @@
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                 &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &none       &kp F7      &kp F8      &kp F9      &kp F12
+                 &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &soft_off   &kp F7      &kp F8      &kp F9      &kp F12
                     &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &kp C_VOL_DN    &none       &kp F4      &kp F5      &kp F6      &kp F11
                     &sys_reset  &out OUT_TOG &bt BT_PRV	&bt BT_NXT  &bt BT_CLR      &sys_reset  &kp F1      &kp F2      &kp F3      &kp F10
                                             &trans      &trans      &trans          &trans      &trans
