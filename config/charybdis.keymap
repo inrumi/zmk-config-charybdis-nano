@@ -25,18 +25,21 @@
             timeout-ms = <100>;
             key-positions = <26 28>;
             bindings = <&mkp MCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_LCLICK {
             timeout-ms = <100>;
             key-positions = <26 27>;
             bindings = <&mkp LCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_RCLICK {
             timeout-ms = <100>;
             key-positions = <27 28>;
             bindings = <&mkp RCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_SCROLL_LAYER {
