@@ -14,6 +14,7 @@
 
 &sk {
     quick-release;
+    release-after-ms = <1600>;
 };
 
 / {
@@ -24,22 +25,25 @@
             timeout-ms = <100>;
             key-positions = <26 28>;
             bindings = <&mkp MCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_LCLICK {
             timeout-ms = <100>;
             key-positions = <26 27>;
             bindings = <&mkp LCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_RCLICK {
             timeout-ms = <100>;
             key-positions = <27 28>;
             bindings = <&mkp RCLK>;
+            layers = <BASE NAV>;
         };
 
         combo_SCROLL_LAYER {
-            timeout-ms = <100>;
+            timeout-ms = <160>;
             layers = <BASE>;
             key-positions = <26 27 28>;
             bindings = <&mo NAV>;
@@ -92,18 +96,21 @@
         appswap: appswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
+            timeout-ms = <2000>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
         };
 
         winswap: winswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
+            timeout-ms = <2000>;
             bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;
         };
 
         tabswap: tabswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
+            timeout-ms = <2000>;
             bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
         };
     };
@@ -198,9 +205,9 @@
     //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
     //             ┃    ESC    ┃           ┃           ┃           ┃           ┃   ┃     -     ┃     7     ┃     8     ┃     9     ┃   BSPC    ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃     +     ┃     4     ┃     5     ┃     6     ┃     ,     ┃
+    //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃     +     ┃     4     ┃     5     ┃     6     ┃     /     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃     0     ┃     1     ┃     2     ┃     3     ┃     .     ┃
+    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃     *     ┃     1     ┃     2     ┃     3     ┃     0     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃ █████████ ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃ █████████ ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -208,8 +215,8 @@
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                     &kp ESC     &none       &none       &none       &none          &kp MINUS    &kp N7      &kp N8      &kp N9      &kp BSPC
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &none          &kp PLUS     &kp N4      &kp N5      &kp N6      &kp COMMA
-                    &none       &none       &none       &none       &none          &kp N0       &kp N1      &kp N2      &kp N3      &kp DOT
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &none          &kp PLUS     &kp N4      &kp N5      &kp N6      &kp FSLH
+                    &none       &none       &none       &none       &none          &kp ASTRK    &kp N1      &kp N2      &kp N3      &kp N0
                                             &trans      &trans      &trans         &trans       &trans
                             >;
                     };
