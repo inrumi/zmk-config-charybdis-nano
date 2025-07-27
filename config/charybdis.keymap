@@ -93,21 +93,21 @@
         appswap: appswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            timeout-ms = 2000;
+            timeout-ms = <2000>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
         };
 
         winswap: winswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            timeout-ms = 2000;
+            timeout-ms = <2000>;
             bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;
         };
 
         tabswap: tabswap {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            timeout-ms = 2000;
+            timeout-ms = <2000>;
             bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
         };
     };
