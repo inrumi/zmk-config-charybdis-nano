@@ -56,12 +56,6 @@
             layers = <BASE>;
         };
 
-        combo_CENTRAL_SOFT_OFF {
-            key-positions = <1 2 7 8>;
-            bindings = <&soft_off>;
-            layers = <BASE>;
-        };
-
         combo_CENTRAL_BOOT {
             key-positions = <0 4 5 9>;
             bindings = <&bootloader>;
@@ -209,9 +203,9 @@
     //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
     //             ┃    ESC    ┃           ┃           ┃           ┃           ┃   ┃     -     ┃     7     ┃     8     ┃     9     ┃   BSPC    ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃     +     ┃     4     ┃     5     ┃     6     ┃     ,     ┃
+    //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃     +     ┃     4     ┃     5     ┃     6     ┃     /     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃     0     ┃     1     ┃     2     ┃     3     ┃     .     ┃
+    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃     *     ┃     1     ┃     2     ┃     3     ┃     0     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃ █████████ ┃   SHIFT   ┃    FUN    ┃   ┃   SPACE   ┃ █████████ ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -219,8 +213,8 @@
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                     &kp ESC     &none       &none       &none       &none          &kp MINUS    &kp N7      &kp N8      &kp N9      &kp BSPC
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &none          &kp PLUS     &kp N4      &kp N5      &kp N6      &kp COMMA
-                    &none       &none       &none       &none       &none          &kp N0       &kp N1      &kp N2      &kp N3      &kp DOT
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &none          &kp PLUS     &kp N4      &kp N5      &kp N6      &kp FSLH
+                    &none       &none       &none       &none       &none          &kp ASTRK    &kp N1      &kp N2      &kp N3      &kp N0
                                             &trans      &trans      &trans         &trans       &trans
                             >;
                     };
@@ -244,7 +238,7 @@
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                 &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &soft_off   &kp F7      &kp F8      &kp F9      &kp F12
+                 &studio_unlock &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_VOL_UP    &none       &kp F7      &kp F8      &kp F9      &kp F12
                     &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &kp C_VOL_DN    &none       &kp F4      &kp F5      &kp F6      &kp F11
                     &sys_reset  &out OUT_TOG &bt BT_PRV	&bt BT_NXT  &bt BT_CLR      &sys_reset  &kp F1      &kp F2      &kp F3      &kp F10
                                             &trans      &trans      &trans          &trans      &trans
