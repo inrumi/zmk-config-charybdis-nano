@@ -53,6 +53,9 @@
 #define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
+#define MCLK_NAV &lt_mclick NAV MCLK
+ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
+
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
