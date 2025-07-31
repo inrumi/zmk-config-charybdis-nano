@@ -48,11 +48,11 @@
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>; bindings = <BINDING1>, <BINDING2>;)
 
 // Tap: space | Hold: nav layer.
-#define NAV_SPC &lt_spc NAV SPACE
+#define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 // Tap: middle click | Hold: nav layer.
-#define NAV_SPC &lt_spc NAV MCLK
+#define MCLICK_SCROLL &lt_mclick NAV MCLK
 ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 // Shift + tap/ double-tap: caps-word | Hold: shift.
@@ -127,7 +127,7 @@ ZMK_COMBO(centralreset, &sys_reset, LT4 LT3 RT3 RT4, BASE)
                     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
                     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH
-                                            NAV_SPC    SMART_NUM   &none           &mo SYM     MAGIC_SHIFT
+                                            SPC_NAV    SMART_NUM   &none           &mo SYM     MAGIC_SHIFT
                             >;
                     };
 
@@ -256,7 +256,7 @@ ZMK_COMBO(centralreset, &sys_reset, LT4 LT3 RT3 RT4, BASE)
 
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
-                    &none       &none       &none       &none       &none           &none       &mkp LCLK   &lt NAV MCLK &mkp LCK    &none
+                    &none       &none       &none       &none       &none           &none       &mkp LCLK   MCLICK_SCROLL &mkp LCK    &none
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
