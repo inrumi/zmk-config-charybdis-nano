@@ -5,9 +5,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/input_transform.h>
-
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/36.h"
@@ -71,7 +70,6 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>; tapping-term-ms 
 
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-key-positions = <RB1 RB2 RB3>; ignored-layers = <MOU NAV SYM FUN>;)
-ZMK_COMBO(mouse, &smart_mouse, RB3 RB4, BASE NAV, 100)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
