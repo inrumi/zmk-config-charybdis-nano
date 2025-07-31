@@ -69,7 +69,7 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced"; tap
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>; tapping-term-ms = <200>;)
 
 // Smart-mouse, requires tri-state module.
-ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-key-positions = <LT2 LT1 RB1 RB2 RB3 RB4 RH0 RH1>; ignored-layers = <MOU NAV>;)
+ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-key-positions = <LT2 LT1 LT0 LT4 LT3 LT2 LT1 LH2 LH1 LH0 RM1 RM2 RM3 RM4>; ignored-layers = <MOU NAV>;)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
@@ -83,7 +83,6 @@ ZMK_CONDITIONAL_LAYER(fun_layer, NAV SYM, FUN)
 ZMK_COMBO(centralboot, &bootloader, LT4 LT0 RT0 RT4, BASE)
 ZMK_COMBO(centralreset, &sys_reset, LT4 LT3 RT3 RT4, BASE)
 
-// ---------------- This may be required for Urob's combos -----------------
 // Define mod-morph with a *single* mod trigger for less repetition.
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
   ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
@@ -136,7 +135,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃     A     ┃     R     ┃     S     ┃     T     ┃     G     ┃   ┃     M     ┃     N     ┃     E     ┃     I     ┃     O     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃  / | MOU  ┃
+    //             ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃     /     ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃ SPACE/NAV ┃ SMART NUM ┃           ┃   ┃    SYM    ┃ MAG SHIFT ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -145,7 +144,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
 
                     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-                    &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &lt MOU FSLH
+                    &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &&comma_morp &dot_morph &qexcl
                                             SPC_NAV    SMART_NUM    &none           &mo SYM     MAGIC_SHIFT
                             >;
                     };
@@ -169,9 +168,9 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp ESC     &kp TAB     &appswap    &winswap    &tabswap        &kp PG_UP   &trans      &kp UP      &trans      &kp BSPC
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &trans          &kp PG_DN   &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL
-                    &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(LS(Z)) &kp LG(V)     &kp CAPS    &trans      &trans      &trans      &kp ENTER
+                    &kp ESC     &kp TAB     &appswap    &winswap    &tabswap        &kp PG_UP   &trans      &kp UP      &trans      &trans
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &trans          &kp PG_DN   &kp LEFT    &kp DOWN    &kp RIGHT   &trans
+                    &trans      &trans      &trans      &trans      &trans          &kp CAPS    &trans      &trans      &trans      &kp ENTER
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
@@ -210,7 +209,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
     // ┃           3 - Numbers                  ┃
     // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
     //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-    //             ┃    ESC    ┃           ┃           ┃           ┃           ┃   ┃     -     ┃     7     ┃     8     ┃     9     ┃   BSPC    ┃
+    //             ┃    ESC    ┃           ┃           ┃           ┃           ┃   ┃     -     ┃     7     ┃     8     ┃     9     ┃     =     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃     +     ┃     4     ┃     5     ┃     6     ┃     ,     ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
@@ -221,7 +220,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp ESC     &none       &none       &none       &none          &kp MINUS    &kp N7      &kp N8      &kp N9      &kp BSPC
+                    &kp ESC     &none       &none       &none       &none          &kp MINUS    &kp N7      &kp N8      &kp N9      &kp EQUAL
                     &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &none          &kp PLUS     &kp N4      &kp N5      &kp N6      &kp COMMA
                     &none       &none       &none       &none       &none          &kp ASTRK    &kp N1      &kp N2      &kp N3      &kp DOT
                                             &trans      &trans      &trans         &trans       &kp N0
@@ -264,9 +263,9 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
     //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
     //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-    //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃  L-CLICK  ┃  R-CLICK  ┃   SCROLL  ┃           ┃
+    //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+    //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -274,8 +273,8 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
-                    &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &none           &none       &none       &none       &none       &none
-                    &none       &none       &none       &none       &none           &none       &mkp LCLK   &mkp RCLK   &mo NAV   &none
+                    &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &none           &none       &mkp LCLK   &mkp RCLK   &mo NAV     &none
+                    &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
