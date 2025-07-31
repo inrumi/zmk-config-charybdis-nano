@@ -77,7 +77,7 @@ ZMK_TRI_STATE(
 
 // Auto-mouse, drop in replacement for smart-mouse
 ZMK_AUTO_LAYER(auto_mouse, continue-list = <LCLK MCLK RCLK>; ignore-modifiers;)
-ZMK_COMBO(mouse_r, &auto_mouse, RH0 RH1, BASE NAV)
+ZMK_COMBO(mouse_r, &auto_mouse MOU, RH0 RH1, BASE)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
