@@ -14,7 +14,7 @@
 #define COMBO_IDLE_SLOW 50
 
 /* Horizontal combos - left hand */
-//ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 // Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
 // chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
@@ -29,8 +29,8 @@ ZMK_COMBO(paste, &kp LS(INS),  LB2 LB1,     BASE NAV NUM, COMBO_TERM_FAST, COMBO
 ZMK_COMBO(bspc,  &kp BSPC,     RT1 RT2,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(del,   &kp DEL,      RT2 RT3,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-ZMK_COMBO(lpar,  &lpar_lt,     RM1 RM2,     BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL),    KEYS_L)
-ZMK_COMBO(rpar,  &rpar_gt,     RM2 RM3,     BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),     KEYS_L)
+ZMK_COMBO(lpar,  &lpar_lt,     RM1 RM2,     BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL))
+ZMK_COMBO(rpar,  &rpar_gt,     RM2 RM3,     BASE     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT))
 ZMK_COMBO(lt,    &kp LT,       RM1 RM2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(gt,    &kp GT,       RM2 RM3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
@@ -60,31 +60,3 @@ ZMK_COMBO(under, &kp UNDER,    RM0 RB0,     BASE NAV NUM, COMBO_TERM_SLOW, COMBO
 ZMK_COMBO(minus, &kp MINUS,    RM1 RB1,     BASE NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 ZMK_COMBO(fslh,  &kp FSLH,     RM2 RB2,     BASE NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 ZMK_COMBO(pipe,  &kp PIPE,     RM3 RB3,     BASE NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-
-// Define mod-morph with a *single* mod trigger for less repetition.
-#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
-  ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
-                bindings = <BINDING1>, <BINDING2>;)
-
-// Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
-SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
-
-// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
-SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
-
-// Tap: qmark | Shift + tap: excl.
-SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
-
-// Tap: left/right parenthesis | Shft + tap: less-than/greater-than.
-SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
-SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
-
-// Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
-ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
-              mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
-
-// Tap: copy | double-tap: cut.
-ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
-              tapping-term-ms = <200>;)
