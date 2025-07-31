@@ -38,6 +38,9 @@ manifest:
     - name: zephyr
       revision: v3.5.0+zmk-fixes
       clone-depth: 1
+      import:
+        name-blocklist:
+          - loramac-node
 
   self:
     path: config
