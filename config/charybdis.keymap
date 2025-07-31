@@ -53,10 +53,6 @@
 #define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
-// Tap: middle click | Hold: nav layer.
-#define MCLK_NAV &lt_mclick NAV MCLK
-ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
-
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
@@ -75,9 +71,9 @@ ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-k
 ZMK_COMBO(mouse, &smart_mouse, RB3 RB4, BASE NAV, 100)
 
 // Swapper settings for all window contexts
-ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>; ignored-key-positions = <LT1 LT0 LM4 LM3 LM2 LM1>;)
-ZMK_TRI_STATE(winswap, bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>; ignored-key-positions = <LT2 LT0 LM4 LM3 LM2 LM1>;)
-ZMK_TRI_STATE(tabswap, bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>; ignored-key-positions = <LT2 LT1 LM4 LM3 LM2 LM1>;)
+ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
+ZMK_TRI_STATE(winswap, bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;)
+ZMK_TRI_STATE(tabswap, bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;)
 
 // Enable FUN layer if NAV and SYM are active
 ZMK_CONDITIONAL_LAYER(fun_layer, NAV SYM, FUN)
@@ -114,12 +110,10 @@ SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
-ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
-              mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
+ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>; mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
 
 // Tap: copy | double-tap: cut.
-ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
-              tapping-term-ms = <200>;)
+ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms = <200>;)
 
 
 / {
