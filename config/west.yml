@@ -19,8 +19,13 @@ manifest:
       import: app/west.yml
 
     # ZMK modules
+    - name: zmk-adaptive-key
+      path: modules/zmk/adaptive-key
+    - name: zmk-leader-key
+      path: modules/zmk/leader-key
     - name: zmk-auto-layer
       path: modules/zmk/auto-layer
+
     - name: zmk-helpers
       path: modules/zmk/helpers
     - name: zmk-tri-state
