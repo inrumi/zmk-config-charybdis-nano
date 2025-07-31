@@ -69,7 +69,7 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced"; tap
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>; tapping-term-ms = <200>;)
 
 // Smart-mouse, requires tri-state module.
-ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-key-positions = <RB1 RB2 RB3>; ignored-layers = <MOU NAV SYM FUN>;)
+ZMK_TRI_STATE(smart_mouse, bindings = <&tog MOU>, <&none>, <&tog MOU>; ignored-key-positions = <RB1 RB2 RB3>; ignored-layers = <SYM FUN>;)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
