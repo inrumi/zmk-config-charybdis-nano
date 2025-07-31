@@ -76,8 +76,8 @@ ZMK_TRI_STATE(
     ignored-layers = <MOU NAV FUN>;)
 
 // Auto-mouse, drop in replacement for smart-mouse
-ZMK_AUTO_LAYER(nav_word, continue-list = <LCLK MCLK RCLK>; ignore-modifiers;)
-ZMK_COMBO(automou, &auto_mouse, RH0 RH1, BASE NAV)
+ZMK_AUTO_LAYER(auto_mouse, continue-list = <LCLK MCLK RCLK>; ignore-modifiers;)
+ZMK_COMBO(mouse_r, &auto_mouse, RH0 RH1, BASE NAV)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
@@ -86,12 +86,6 @@ ZMK_TRI_STATE(tabswap, bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;)
 
 // Enable FUN layer if NAV and SYM are active
 ZMK_CONDITIONAL_LAYER(fun_layer, NAV SYM, FUN)
-
-// Mouse combos (legacy)
-//ZMK_COMBO(lclick, &mkp LCLK, RB1 RB2, BASE NAV, 100)
-//ZMK_COMBO(mclick, &mkp MCLK, RB1 RB3, BASE NAV, 100)
-//ZMK_COMBO(rclick, &mkp RCLK, RB2 RB3, BASE NAV, 100)
-//ZMK_COMBO(mscroll, &mo NAV, RB1 RB2 RB3, BASE NAV, 100)
 
 // Reset and bootload dongle
 ZMK_COMBO(centralboot, &bootloader, LT4 LT0 RT0 RT4, BASE)
