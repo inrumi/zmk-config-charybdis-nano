@@ -52,10 +52,6 @@
 #define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
-// Tap: middle click | Hold: nav layer.
-#define MCLICK_SCROLL &lt_mclick NAV MCLK
-ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
-
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
@@ -286,7 +282,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
 
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
-                    &none       &none       &none       &none       &none           &none       &mkp LCLK   MCLICK_SCROLL &mkp LCK    &none
+                    &none       &none       &none       &none       &none           &none       &mkp LCLK   &lt NAV MCLK &mkp LCK  &none
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
