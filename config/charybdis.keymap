@@ -74,7 +74,6 @@ ZMK_TRI_STATE(
     ignored-key-positions =
         <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOU NAV FUN>;)
-ZMK_COMBO(automou, &auto_mouse, RB3 RB4, BASE)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
@@ -131,6 +130,8 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
     };
   };
 };
+
+ZMK_COMBO(automou, &auto_mouse, RB3 RB4, BASE)
 
 / {
     trackball_listener {
@@ -297,7 +298,7 @@ ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms =
 
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
                     &none       &none       &none       &none       &none           &none       &none       &none       &none       &none
-                    &none       &none       &none       &none       &none           &none       &mkp LCLK   &mkp MCLK   &mkp RCLK   &none
+                    &none       &none       &none       &none       &none           &none       &mkp LCLK   MCLK_NAV    &mkp RCLK   &none
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };
