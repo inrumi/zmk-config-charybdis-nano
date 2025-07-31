@@ -12,6 +12,8 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/36.h"
 
+#include "combos.dtsi" // Must be sourced after HRM-combo hack.
+
 #define BASE 0
 #define NAV  1
 #define SYM  2
@@ -87,8 +89,6 @@ ZMK_CONDITIONAL_LAYER(fun_layer, NAV SYM, FUN)
 // Reset and bootload dongle
 ZMK_COMBO(centralboot, &bootloader, LT4 LT0 RT0 RT4, BASE)
 ZMK_COMBO(centralreset, &sys_reset, LT4 LT3 RT3 RT4, BASE)
-
-#include "combos.dtsi" // Must be sourced after HRM-combo hack.
 
 / {
     trackball_listener {
