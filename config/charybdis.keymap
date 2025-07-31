@@ -75,6 +75,10 @@ ZMK_TRI_STATE(
         <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOU NAV FUN>;)
 
+// Auto-mouse, drop in replacement for smart-mouse
+ZMK_AUTO_LAYER(nav_word, continue-list = <LCLK MCLK RCLK>; ignore-modifiers;)
+ZMK_COMBO(automou, &auto_mouse, RH0 RH1, BASE NAV)
+
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
 ZMK_TRI_STATE(winswap, bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;)
@@ -119,19 +123,6 @@ ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>; mods = <(MOD_LSFT|MOD_RS
 
 // Tap: copy | double-tap: cut.
 ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>; tapping-term-ms = <200>;)
-
-/ {
-  behaviors {
-    auto_mouse: auto_mouse {
-      compatible = "zmk,behavior-auto-layer";
-      #binding-cells = <1>;
-      continue-list = <LCLK MCLK RCLK>;
-      ignore-modifiers;
-    };
-  };
-};
-
-ZMK_COMBO(automou, &auto_mouse, RB3 RB4, BASE)
 
 / {
     trackball_listener {
