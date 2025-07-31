@@ -2,27 +2,27 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: urob
-      url-base: https://github.com/urob
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: dhruvinsh
+      url-base: https://github.com/dhruvinsh
     - name: englmaxi
       url-base: https://github.com/englmaxi
-
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
-      import: app/west.yml
       revision: main
+      import: app/west.yml
 
-    # ZMK modules
+    - name: zmk-tri-state
+      remote: urob
+      revision: main
     - name: zmk-auto-layer
       remote: urob
       revision: main
     - name: zmk-helpers
-      remote: urob
-      revision: main
-    - name: zmk-tri-state
       remote: urob
       revision: main
 
@@ -32,21 +32,5 @@ manifest:
     - name: zmk-dongle-display
       remote: englmaxi
       revision: main
-
-    # Temporarily overload Zephyr until
-    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
-    - name: zephyr
-      revision: v3.5.0+zmk-fixes
-      clone-depth: 1
-      import:
-        # Only enable most commonly used boards. For less common hardware one
-        # may need to enable additional modules.
-        name-allowlist:
-          - cmsis
-          - hal_nordic
-          - hal_rpi_pico
-          - hal_stm32
-          - lvgl
-          - tinycrypt
   self:
     path: config
