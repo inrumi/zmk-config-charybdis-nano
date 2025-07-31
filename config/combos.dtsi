@@ -8,7 +8,7 @@
           ╰─────────────╯ ╰─────────╯ */
 
 #define COMBO_TERM_SLOW 100
-#define COMBO_IDLE_SLOW 50
+#define COMBO_IDLE_SLOW 35
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     BASE NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
