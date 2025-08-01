@@ -50,7 +50,7 @@
 
 // Tap: space | Hold: nav layer.
 #define SPC_NAV &lt_spc NAV SPACE
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <120>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced"; tapping-term-ms = <140>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 #define MCLK_NAV &lt_mclick NAV MCLK
 ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
