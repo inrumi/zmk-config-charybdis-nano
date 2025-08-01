@@ -12,8 +12,7 @@
 #include "zmk-helpers/key-labels/36.h"
 
 // constants
-#define QUICK_TAP_MS 180
-#define CANCEL &kp K_CANCEL
+#define QUICK_TAP_MS 175
 
 #define BASE 0
 #define MOU  1
@@ -80,7 +79,7 @@ ZMK_TRI_STATE(winswap, bindings = <&kt LGUI>, <&kp GRAVE>, <&kt LGUI>;)
 ZMK_TRI_STATE(tabswap, bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;)
 
 // Enable FUN layer if NAV and SYM are active
-ZMK_CONDITIONAL_LAYER(fun_layer, NAV SYM, FUN)
+ZMK_CONDITIONAL_LAYER(fun_layer, NAV NUM, FUN)
 
 // Reset and bootload dongle
 ZMK_COMBO(centralboot, &bootloader, LT4 LT0 RT0 RT4, BASE)
@@ -144,7 +143,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
                     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
                     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &comma_morph &dot_morph &qexcl
-                                            SPC_NAV     SMART_NUM   CANCEL          &mo SYM     MAGIC_SHIFT
+                                            SPC_NAV     SMART_NUM   &none          &mo SYM     MAGIC_SHIFT
                             >;
                     };
 
@@ -170,7 +169,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
                         &b_tap Q    &b_tap W    &b_tap F    &b_tap P    &b_tap B        &b_tap J    &b_tap L    &b_tap U    &b_tap Y    &b_tap SQT
                         &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &b_tap G        &b_tap M    &b_tap N    &b_tap E    &b_tap I    &b_tap O
                         &b_tap Z    &b_tap X    &b_tap C    &b_tap D    &b_tap V        &b_tap K    &mkp LCLK   MCLK_NAV    &mkp RCLK   &b_tap QMARK
-                                                &trans     &trans      &trans          &trans      &trans
+                                                &trans      &trans      &trans           &trans      &trans
                                 >;
                         };
 
