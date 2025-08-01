@@ -111,7 +111,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
 
-        input-processors = <&zip_temp_layer MOU 5000>;
+        input-processors = <&zip_temp_layer MOU 3000>;
 
         scroll {
             layers = <NAV>;
