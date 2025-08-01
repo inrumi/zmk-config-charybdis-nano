@@ -13,7 +13,7 @@
 
 // constants
 #define QUICK_TAP_MS 180
-#define &kp K_CANCEL
+#define CANCEL &kp K_CANCEL
 
 #define BASE 0
 #define NAV  1
