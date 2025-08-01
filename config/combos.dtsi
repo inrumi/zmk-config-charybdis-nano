@@ -13,8 +13,6 @@
  #define COMBO_IDLE_FAST 150
  #define COMBO_IDLE_SLOW 50
 
- #define BASE(keycode) ZMK_COMBO()
-
  /* Horizontal combos - left hand */
  ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
  ZMK_COMBO(moulm, &smart_mouse, LT2 LT1,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
