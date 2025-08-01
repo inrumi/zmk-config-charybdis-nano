@@ -7,16 +7,17 @@
    ╰───────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────╯
            ╰─────────────╯ ╰─────────────╯ */
 
- #define COMBO_TERM_FAST 40
- #define COMBO_TERM_SLOW 60
+ #define COMBO_TERM_FAST 24
+ #define COMBO_TERM_SLOW 36
 
  #define COMBO_IDLE_FAST 150
  #define COMBO_IDLE_SLOW 50
 
  /* Horizontal combos - left hand */
  ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
- ZMK_COMBO(moule, &smart_mouse, LT2 LT1,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
- ZMK_COMBO(mouri, &smart_mouse, RM3 RM4,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ ZMK_COMBO(moulm, &smart_mouse, LT2 LT1,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ ZMK_COMBO(mourm, &smart_mouse, RM3 RM4,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ ZMK_COMBO(mourb, &smart_mouse, RB3 RB4,     BASE NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
  // Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
  // chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
