@@ -52,7 +52,7 @@
 #define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(dot_spc, bindings = <&kp SPACE>; wait-ms = <0>; tap-ms = <5>;)
 
 #define MCLK_NAV &lt_mclick NAV MCLK
 ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
@@ -72,6 +72,9 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>; tapping-term-ms 
 
 // Auto-mouse
 ZMK_MACRO_ONE_PARAM(b_tap, bindings = <&to BASE>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(mou_nav, bindings = <&macro_press &mo NAV>, <&macro_release &to BASE>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(mou_shft, bindings = <&macro_press MAGIC_SHIFT>, <&macro_release &to BASE>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(mou_num, bindings = <&macro_press SMART_NUM>, <&macro_release &to BASE>; wait-ms = <0>; tap-ms = <5>;)
 
 // Swapper settings for all window contexts
 ZMK_TRI_STATE(appswap, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;)
@@ -143,7 +146,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
                     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
                     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &comma_morph &dot_morph &qexcl
-                                            SPC_NAV     SMART_NUM   &none          &mo SYM     MAGIC_SHIFT
+                                            SPC_NAV     SMART_NUM   &none           &mo SYM     MAGIC_SHIFT
                             >;
                     };
 
@@ -169,7 +172,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
                         &b_tap Q    &b_tap W    &b_tap F    &b_tap P    &b_tap B        &b_tap J    &b_tap L    &b_tap U    &b_tap Y    &b_tap SQT
                         &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &b_tap G        &b_tap M    &b_tap N    &b_tap E    &b_tap I    &b_tap O
                         &b_tap Z    &b_tap X    &b_tap C    &b_tap D    &b_tap V        &b_tap K    &mkp LCLK   MCLK_NAV    &mkp RCLK   &b_tap QMARK
-                                                &trans      &trans      &trans           &trans      &trans
+                                                &mou_nav    &mou_num    &trans          &trans      &mou_shft
                                 >;
                         };
 
