@@ -13,6 +13,11 @@
 
 // constants
 #define QUICK_TAP_MS 175
+#define undo  &kp LG(Z)
+#define redo  &kp LG(LS(Z))
+#define cut   &kp LG(X)
+#define copy  &kp LG(C)
+#define paste &kp LG(V)
 
 #define BASE 0
 #define MOU  1
@@ -52,7 +57,7 @@
 #define SPC_NAV &lt_spc NAV SPACE
 ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced"; tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-ZMK_MACRO(dot_spc, bindings = <&kp SPACE>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>; tap-ms = <5>;)
 
 #define MCLK_NAV &lt_mclick NAV MCLK
 ZMK_HOLD_TAP(lt_mclick, bindings = <&mo>, <&mkp>; flavor = "hold-preferred"; tapping-term-ms = <180>; quick-tap-ms = <QUICK_TAP_MS>;)
@@ -187,16 +192,16 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
     //             ┃   SHIFT   ┃   CTRL    ┃    ALT    ┃    GUI    ┃           ┃   ┃   PG_DN   ┃   LEFT    ┃   DOWN    ┃   RIGHT   ┃    DEL    ┃
     //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-    //             ┃    UNDO   ┃    CUT    ┃    COPY   ┃    REDO   ┃   PASTE   ┃   ┃   CAPS    ┃           ┃           ┃           ┃   ENTER   ┃
+    //             ┃    UNDO   ┃    CUT    ┃    COPY   ┃    REDO   ┃   PASTE   ┃   ┃           ┃           ┃           ┃           ┃   ENTER   ┃
     //             ┗━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
     //                                     ┃ █████████ ┃ SMART NUM ┃           ┃   ┃    SYM    ┃ MAG SHIFT ┃
     //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┛
      bindings = <
     // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp ESC     &kp TAB     &appswap    &winswap    &tabswap        &kp PG_UP   &trans      &kp UP      &trans      &trans
-                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &trans          &kp PG_DN   &kp LEFT    &kp DOWN    &kp RIGHT   &trans
-                    &trans      &trans      &trans      &trans      &trans          &kp CAPS    &trans      &trans      &trans      &kp ENTER
+                    &kp ESC     &kp TAB     &appswap    &winswap    &tabswap        &kp PG_UP   &trans      &kp UP      &trans      &kp BSPC
+                    &sk LSHFT   &sk LCTRL   &sk LALT    &sk LGUI    &trans          &kp PG_DN   &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL
+                    undo        cut         copy        redo        paste           &trans      &trans      &trans      &trans      &kp ENTER
                                             &trans      &trans      &trans          &trans      &trans
                             >;
                     };

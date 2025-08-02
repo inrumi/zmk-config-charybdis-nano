@@ -7,8 +7,8 @@
    ╰───────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────╯
            ╰─────────────╯ ╰─────────────╯ */
 
- #define COMBO_TERM_FAST 24
- #define COMBO_TERM_SLOW 40
+ #define COMBO_TERM_FAST 30
+ #define COMBO_TERM_SLOW 46
 
  #define COMBO_IDLE_FAST 150
  #define COMBO_IDLE_SLOW 50
