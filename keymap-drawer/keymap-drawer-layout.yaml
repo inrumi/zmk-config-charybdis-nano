@@ -176,7 +176,7 @@ combos:
   l: [NAV]
   hidden: true
 - p: [28, 29]
-  k: {t: '?', s: '!'}
+  k: '!'
   l: [COMBOS]
 - p: [1, 11]
   k: '@'
