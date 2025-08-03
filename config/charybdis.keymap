@@ -174,7 +174,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
                         &b_tap Q    &b_tap W    &b_tap F    &b_tap P    &b_tap B        &b_tap J    &b_tap L    &b_tap U    &b_tap Y    &b_tap SQT
                         &b_tap A    &b_tap R    &b_tap S    &b_tap T    &b_tap G        &b_tap M    &b_tap N    &b_tap E    &b_tap I    &b_tap O
-                        &b_tap Z    &b_tap X    &b_tap C    &b_tap D    &b_tap V        &b_tap K    &mkp LCLK   MCLK_NAV    &mkp RCLK   &b_tap QMARK
+                        &b_tap Z    &b_tap X    &b_tap C    &b_tap D    &b_tap V        &b_tap K    &mkp LCLK   MCLK_NAV    &mkp RCLK   &b_tap FSLH
                                                 &mou_nav    &mo NUM    &trans          &trans      &kp LSHFT
                                 >;
                         };
