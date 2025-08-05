@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
-    - name: englmaxi
-      url-base: https://github.com/englmaxi
+    - name: inrumi
+      url-base: https://github.com/inrumi
     - name: urob
       url-base: https://github.com/urob
   projects:
@@ -28,7 +28,7 @@ manifest:
       remote: badjeff
       revision: main
     - name: zmk-dongle-display
-      remote: englmaxi
+      remote: inrumi
       revision: main
   self:
     path: config
