@@ -5,6 +5,11 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &charybdis_5col_layout;
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+	    compatible = "zmk,battery-nrf-vddh";
     };
 
     default_transform: keymap_transform_0 {
@@ -19,7 +24,7 @@
 					RC(3,3) RC(3,4) RC(3,1)  RC(3,6)  RC(3,8)
         >;
     };
-	
+
     kscan0: kscan {
         diode-direction = "row2col";
 	    wakeup-source;
